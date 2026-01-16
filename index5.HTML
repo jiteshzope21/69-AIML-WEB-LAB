@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Form</title>
+</head>
+<body>
+
+  <h1 id="title">Student Feedback Survey</h1>
+
+  <p id="description">
+    Please fill out this short survey to help us improve our learning experience.
+  </p>
+
+  <form id="survey-form">
+
+    <!-- Name -->
+    <label id="name-label" for="name">Name</label><br>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter your full name"
+      required
+    ><br><br>
+
+    <!-- Email -->
+    <label id="email-label" for="email">Email</label><br>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email address"
+      required
+    ><br><br>
+
+    <!-- Number -->
+    <label id="number-label" for="number">Age</label><br>
+    <input
+      type="number"
+      id="number"
+      name="age"
+      min="10"
+      max="100"
+      placeholder="Enter your age"
+    ><br><br>
+
+    <!-- Dropdown -->
+    <label for="dropdown">Current Role</label><br>
+    <select id="dropdown" name="role">
+      <option value="">Select an option</option>
+      <option value="student">Student</option>
+      <option value="professional">Professional</option>
+    </select><br><br>
+
+    <!-- Radio Buttons -->
+    <p>Would you recommend us?</p>
+    <input
+      type="radio"
+      name="recommend"
+      value="yes"
+    > Yes<br>
+    <input
+      type="radio"
+      name="recommend"
+      value="no"
+    > No<br><br>
+
+    <!-- Checkboxes -->
+    <p>What do you like about the course?</p>
+    <input
+      type="checkbox"
+      value="content"
+    > Content<br>
+    <input
+      type="checkbox"
+      value="projects"
+    > Projects<br><br>
+
+    <!-- Textarea -->
+    <label for="comments">Additional Comments</label><br>
+    <textarea
+      id="comments"
+      name="comments"
+      rows="4"
+      cols="30"
+      placeholder="Enter your comments here"
+    ></textarea><br><br>
+
+    <!-- Submit -->
+    <button id="submit" type="submit">Submit</button>
+
+  </form>
+
+</body>
+</html>
