@@ -1,0 +1,15 @@
+
+ body {
+    background-color: rgb(182, 181, 163);
+ }
+.dabba {
+    background-color: rgb(228, 205, 129);
+  width: 400px;
+  height: 300px;
+  margin: 0 auto;
+  padding: 5px;
+   
+}
+h1 {
+    text-align: center;
+}
