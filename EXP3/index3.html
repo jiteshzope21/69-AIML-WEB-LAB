@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Docs | Technical Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --sidebar-bg: #1e293b;
+            --sidebar-text: #e2e8f0;
+            --accent-color: #38bdf8; /* Light Blue */
+            --main-bg: #ffffff;
+            --text-color: #334155;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--main-bg);
+            display: flex; /* Layout setup */
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR NAVBAR --- */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            border-right: 1px solid #334155;
+            overflow-y: auto; /* Scroll if menu is long */
+            z-index: 100;
+        }
+
+        #navbar header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+            background-color: #0f172a; /* Slightly darker header */
+        }
+
+        #navbar a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        #navbar a:hover {
+            background-color: #334155;
+            color: var(--accent-color);
+            padding-left: 35px; /* Slide effect */
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* --- MAIN CONTENT --- */
+        #main-doc {
+            margin-left: 300px; /* Offset for sidebar */
+            padding: 60px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Sections */
+        .main-section {
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 40px;
+        }
+        
+        /* Remove border from last section */
+        .main-section:last-child {
+            border-bottom: none;
+        }
+
+        /* Headers inside sections */
+        .main-section header {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0f172a;
+            position: relative;
+        }
+
+        /* Paragraphs */
+        .main-section p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* Lists */
+        .main-section ul {
+            margin: 20px 0 20px 40px;
+        }
+        
+        .main-section li {
+            margin-bottom: 10px;
+        }
+
+        /* --- CODE BLOCKS (The "Pro" Touch) --- */
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            display: block;
+            border-radius: 8px;
+            margin: 20px 0;
+            white-space: pre-wrap; /* Keeps formatting */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Inline code styling if needed */
+        p code {
+            display: inline;
+            padding: 2px 6px;
+            background-color: #f1f5f9;
+            color: #d63384;
+            border: 1px solid #e2e8f0;
+            box-shadow: none;
+            border-left: none;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 850px) {
+            body {
+                flex-direction: column;
+            }
+
+            #navbar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                max-height: 300px; /* Limit height on mobile */
+            }
+
+            #navbar header {
+                padding: 15px;
+            }
+
+            #main-doc {
+                margin-left: 0;
+                padding: 30px 20px;
+            }
+
+            .main-section header {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <header>DevDocs 1.0</header>
+
+        <a class="nav-link" href="#HTML_Introduction">HTML Introduction</a>
+        <a class="nav-link" href="#CSS_Basics">CSS Basics</a>
+        <a class="nav-link" href="#JavaScript_Overview">JavaScript Overview</a>
+        <a class="nav-link" href="#Flexbox_Layout">Flexbox Layout</a>
+        <a class="nav-link" href="#CSS_Grid">CSS Grid</a>
+    </nav>
+
+    <main id="main-doc">
+
+        <section class="main-section" id="HTML_Introduction">
+            <header>HTML Introduction</header>
+            <p>HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It is the building block of the web.</p>
+            <p>A standard HTML document structure looks like this:</p>
+            
+            <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+            
+            <p>Key concepts include:</p>
+            <ul>
+                <li><strong>Elements:</strong> The building blocks (e.g., paragraphs, headings).</li>
+                <li><strong>Tags:</strong> The labels used to mark the start and end of an element.</li>
+                <li><strong>Attributes:</strong> Provide additional information about elements.</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="CSS_Basics">
+            <header>CSS Basics</header>
+            <p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in HTML. </p>
+            <p>CSS handles the look and feel of a webpage. Here is a basic syntax example:</p>
+
+            <code>/* Selector { Property: Value; } */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}</code>
+
+            <ul>
+                <li><strong>Selectors:</strong> Patterns used to select the element(s) you want to style.</li>
+                <li><strong>Properties:</strong> Aspects of the element you want to change (e.g., color, width).</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="JavaScript_Overview">
+            <header>JavaScript Overview</header>
+            <p>JavaScript is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.</p>
+            <p>It is the scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more.</p>
+
+            <code>// A simple function
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("Developer")); // Output: Hello, Developer!</code>
+
+            <ul>
+                <li><strong>Variables:</strong> Containers for storing data values.</li>
+                <li><strong>Functions:</strong> Blocks of code designed to perform a particular task.</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="Flexbox_Layout">
+            <header>Flexbox Layout</header>
+            <p>The Flexible Box Layout Module (Flexbox) makes it easier to design flexible responsive layout structures without using float or positioning.</p>
+            <p>To start using Flexbox, you need to define a flex container:</p>
+
+            <code>.container {
+    display: flex;
+    justify-content: center; /* Aligns horizontally */
+    align-items: center;     /* Aligns vertically */
+}</code>
+
+            <ul>
+                <li><strong>Direction:</strong> Control if items are in a row or column.</li>
+                <li><strong>Alignment:</strong> Easily center items vertically and horizontally.</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="CSS_Grid">
+            <header>CSS Grid</header>
+            <p>CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay out items in rows and columns.</p>
+            <p>Unlike Flexbox (1-dimensional), Grid handles both dimensions simultaneously:</p>
+
+            <code>.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto; /* 3 Columns */
+    gap: 10px; /* Space between items */
+}</code>
+
+            <ul>
+                <li><strong>Grid Lines:</strong> The dividing lines that make up the structure of the grid.</li>
+                <li><strong>Grid Areas:</strong> Specific rectangular areas on the grid used to place content.</li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+</html>

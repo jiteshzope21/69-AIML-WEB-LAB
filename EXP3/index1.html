@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Pricing Plans</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Subtle blue gradient */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        /* --- PRICING CONTAINER --- */
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center; /* Aligns cards vertically in the center */
+            gap: 30px; /* Space between cards */
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* --- CARD BASE STYLES --- */
+        .pricing-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            flex: 1 1 250px; /* Grow, Shrink, Basis */
+            
+            /* Soft Shadow for depth */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px); /* Lift up on hover */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Typography */
+        .pricing-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #999;
+            font-weight: 400;
+        }
+
+        /* Feature List */
+        ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Checkmark icon using CSS only */
+        ul li::before {
+            content: '✔';
+            color: #2ecc71;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 0;
+            border-radius: 30px;
+            border: 2px solid #333;
+            background: transparent;
+            color: #333;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #333;
+            color: white;
+        }
+
+        /* --- SPECIFIC CARD VARIATIONS --- */
+
+        /* 1. Basic Plan */
+        .basic-plan {
+            border-top: 5px solid #95a5a6;
+        }
+
+        /* 2. Pro Plan (Highlighted) */
+        .pro-plan {
+            /* Makes it slightly wider/prominent if there is space */
+            flex-grow: 1.2; 
+            /* Makes it taller */
+            padding: 60px 30px; 
+            border-top: 5px solid #6c5ce7;
+            border-bottom: 5px solid #6c5ce7;
+            z-index: 2; /* Sits on top */
+            transform: scale(1.05); /* Make it pop out by default */
+        }
+        
+        /* Specific hover for Pro to maintain scale */
+        .pro-plan:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .pro-plan h2 { color: #6c5ce7; }
+        .pro-plan .btn {
+            background: #6c5ce7;
+            border-color: #6c5ce7;
+            color: white;
+        }
+        .pro-plan .btn:hover { background: #5649c0; }
+
+        /* Badge for Pro Plan */
+        .most-popular {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #6c5ce7;
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            border-bottom-left-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* 3. Premium Plan */
+        .premium-plan {
+            border-top: 5px solid #e1b12c;
+        }
+        .premium-plan h2 { color: #e1b12c; }
+
+    </style>
+</head>
+<body>
+
+    <h1>Pick Your Perfect Plan</h1>
+
+    <div class="pricing-container">
+
+        <div class="pricing-card basic-plan">
+            <h2>Basic</h2>
+            <div class="price">$9<span>/mo</span></div>
+            <ul>
+                <li>1 Website</li>
+                <li>10GB Storage</li>
+                <li>Email Support</li>
+            </ul>
+            <button class="btn">Choose Basic</button>
+        </div>
+
+        <div class="pricing-card pro-plan">
+            <span class="most-popular">MOST POPULAR</span>
+            <h2>Pro</h2>
+            <div class="price">$19<span>/mo</span></div>
+            <ul>
+                <li>5 Websites</li>
+                <li>50GB Storage</li>
+                <li>Priority Email Support</li>
+                <li>Free SSL Certificate</li>
+            </ul>
+            <button class="btn">Get Started</button>
+        </div>
+
+        <div class="pricing-card premium-plan">
+            <h2>Premium</h2>
+            <div class="price">$29<span>/mo</span></div>
+            <ul>
+                <li>Unlimited Websites</li>
+                <li>1TB Storage</li>
+                <li>24/7 Phone Support</li>
+                <li>Free SSL & Domain</li>
+            </ul>
+            <button class="btn">Go Premium</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

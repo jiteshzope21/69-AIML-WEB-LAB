@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Tech | Premium Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- PROFESSIONAL COLOR PALETTE --- */
+        :root {
+            --primary-dark: #0f172a;  /* Deep Navy */
+            --accent-gold: #b45309;   /* Bronze/Gold Accent */
+            --text-grey: #334155;     /* Soft dark grey for text */
+            --bg-color: #f1f5f9;      /* Light grey background outside the paper */
+            --paper-bg: #ffffff;      /* Pure white paper */
+            --border-color: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Lato', sans-serif;
+            color: var(--text-grey);
+            padding: 40px 20px;
+            line-height: 1.7;
+        }
+
+        /* --- THE "PAPER" CONTAINER --- */
+        .newspaper-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--paper-bg);
+            /* Soft, layered shadow for a 'floating' effect */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "feature feature image"
+                "secondary secondary image"
+                "small1 small2 small3";
+            grid-template-columns: 1fr 1fr 400px;
+            gap: 40px;
+            padding: 50px;
+            border-top: 5px solid var(--primary-dark); /* Top Accent Line */
+        }
+
+        /* --- MASTHEAD (HEADER) --- */
+        .header {
+            grid-area: header;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .meta-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        /* Two lines around the date */
+        .meta-bar::before, .meta-bar::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border-color);
+            margin: auto 20px;
+        }
+
+        /* --- TYPOGRAPHY & TAGS --- */
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            margin: 10px 0 15px 0;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin: 5px 0 10px 0;
+        }
+
+        /* Category Tag (e.g. "TECHNOLOGY") */
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- GRID AREAS --- */
+        
+        /* Main Feature */
+        .feature-article {
+            grid-area: feature;
+            padding-right: 30px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Drop Cap */
+        .feature-article p::first-letter {
+            float: left;
+            font-size: 5rem;
+            line-height: 0.8;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            margin-right: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* Secondary Article */
+        .secondary-article {
+            grid-area: secondary;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            margin-right: 30px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* --- IMAGE --- */
+        .cover-image {
+            grid-area: image;
+            position: relative;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 4px;
+            /* Subtle shadow behind image */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Start slightly desaturated for a "classy" look */
+            filter: saturate(0.8) contrast(1.1); 
+            transition: all 0.5s ease;
+        }
+
+        .cover-image:hover img {
+            filter: saturate(1.2) contrast(1.1); /* Vivid on hover */
+            transform: scale(1.03);
+        }
+
+        .caption {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 10px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* --- BOTTOM COLUMNS --- */
+        .small-article-wrapper {
+            padding-top: 20px;
+            border-top: 3px solid var(--primary-dark); /* Strong separator line */
+        }
+        
+        .small-article1 { grid-area: small1; }
+        .small-article2 { grid-area: small2; border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); padding: 0 20px; }
+        .small-article3 { grid-area: small3; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .newspaper-layout {
+                grid-template-areas:
+                    "header"
+                    "image"
+                    "feature"
+                    "secondary"
+                    "small1"
+                    "small2"
+                    "small3";
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 20px;
+            }
+            .brand-name { font-size: 3.5rem; }
+            .feature-article, .secondary-article, .small-article2 { border: none; padding: 0; margin: 0; }
+            .img-container { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="newspaper-layout">
+
+        <header class="header">
+            <div class="meta-bar">
+                <span>Friday, Jan 24, 2025</span>
+                <span>Global Edition</span>
+                <span>Vol. 884</span>
+            </div>
+            <h1 class="brand-name">The Daily Tech</h1>
+            <div style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">
+                Strategy • Innovation • Future
+            </div>
+        </header>
+
+        <article class="feature-article">
+            <span class="tag">Artificial Intelligence</span>
+            <h2>The Code That Writes Itself: A New Era Begins</h2>
+            <p>
+                In a groundbreaking shift for the software industry, Silicon Valley's largest firms have begun deploying "Genesis" models. These autonomous agents are not merely assisting developers—they are actively architecting entire systems from the ground up.
+            </p>
+            <p>
+                Dr. Aris Thorne, Chief Scientist at NeuralX, calls it "the industrial revolution of logic." While efficiency metrics have soared by 300%, questions regarding oversight and creativity remain the central topic of debate in boardrooms across the globe.
+            </p>
+        </article>
+
+        <figure class="cover-image">
+            <div class="img-container">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/14818732833352122844_0" alt="Futuristic Data Center">
+            </div>
+            <figcaption class="caption">
+                Fig 1. The 'Blue Horizon' data center, home to the world's first autonomous coding core.
+            </figcaption>
+        </figure>
+
+        <article class="secondary-article">
+            <span class="tag">Hardware</span>
+            <h3>Quantum Stability Reached</h3>
+            <p>
+                Hardware engineers have quietly passed a major milestone. The new 'Falcon' processor has achieved stable quantum coherence for over 10 milliseconds. In the world of quantum mechanics, this is an eternity, opening doors for encryption cracking previously thought impossible.
+            </p>
+        </article>
+
+        <div class="small-article-wrapper small-article1">
+            <span class="tag">Markets</span>
+            <h3>Tech Stocks Rally</h3>
+            <p>The NASDAQ closed up 2.4% today as semiconductor supply chains show signs of recovery.</p>
+        </div>
+
+        <div class="small-article-wrapper small-article2">
+            <span class="tag">Security</span>
+            <h3>The End of Phishing?</h3>
+            <p>A new W3C protocol verifies email origins at the ISP level, potentially eliminating spam forever.</p>
+        </div>
+
+        <div class="small-article-wrapper small-article3">
+            <span class="tag">Design</span>
+            <h3>Minimalism Returns</h3>
+            <p>UI trends for 2025 are shifting back to stark minimalism, favoring typography over complex 3D elements.</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
