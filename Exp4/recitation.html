@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Pre-Lab Interactive Demo</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        color: white;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.3);
+    }
+
+    .container {
+        width: 85%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        color: black;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+        padding: 10px 18px;
+        border: none;
+        background: #667eea;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background: #5a67d8;
+    }
+
+    input {
+        padding: 8px;
+        margin-top: 10px;
+        width: 200px;
+    }
+
+    p.output {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>JavaScript Pre-Lab Interactive Demonstration</h1>
+<p>Experiment 4 – Events & DOM Manipulation</p>
+</header>
+
+<div class="container">
+
+<!-- Exercise 3 -->
+<div class="card">
+<h2>Exercise 3 – Welcome Message</h2>
+<button onclick="welcomeMsg()">Show Welcome</button>
+</div>
+
+<!-- Exercise 4 -->
+<div class="card">
+<h2>Exercise 4 – Variables Demo</h2>
+<button onclick="showDetails()">Show Name & Age</button>
+</div>
+
+<!-- Exercise 5 -->
+<div class="card">
+<h2>Exercise 5 – Button Click Event</h2>
+<button onclick="clickMessage()">Click Me</button>
+<p class="output" id="clickOutput"></p>
+</div>
+
+<!-- Exercise 7 -->
+<div class="card">
+<h2>Exercise 7 – Onclick Text Change</h2>
+<p id="changeTextPara">Original Text</p>
+<button onclick="changeText()">Change Text</button>
+</div>
+
+<!-- Exercise 8 -->
+<div class="card">
+<h2>Exercise 8 – DOM Manipulation</h2>
+<p id="domText">Hello DOM</p>
+<button onclick="modifyDOM()">Modify Text</button>
+</div>
+
+<!-- Exercise 9 -->
+<div class="card">
+<h2>Exercise 9 – Time Based Greeting</h2>
+<button onclick="showGreeting()">Show Greeting</button>
+<p class="output" id="greetOutput"></p>
+</div>
+
+</div>
+
+<script>
+
+function welcomeMsg() {
+    alert("Welcome to JavaScript Pre-Lab!");
+}
+
+function showDetails() {
+    let name = "Jitesh";
+    let age = 20;
+    alert("Name: " + name + "\nAge: " + age);
+}
+
+function clickMessage() {
+    document.getElementById("clickOutput").innerHTML = "Button Clicked Successfully!";
+}
+
+function changeText() {
+    document.getElementById("changeTextPara").innerHTML = "Text Changed Using Onclick!";
+}
+
+function modifyDOM() {
+    document.getElementById("domText").innerHTML = "DOM Content Modified!";
+}
+
+function showGreeting() {
+
+    let hour = new Date().getHours();
+
+    if(hour < 12) {
+        document.getElementById("greetOutput").innerHTML = "Good Morning 🌞";
+    }
+    else {
+        document.getElementById("greetOutput").innerHTML = "Good Evening 🌙";
+    }
+}
+
+</script>
+
+</body>
+</html>
