@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM | Event Listeners</title>
+    <style>
+        body { background: #111; height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; }
+        #clickBtn { background: linear-gradient(45deg, #f43f5e, #fb923c); color: white; border: none; padding: 20px 40px; border-radius: 12px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.5s; box-shadow: 0 0 20px rgba(244, 63, 94, 0.4); }
+        #clickBtn:hover { box-shadow: 0 0 40px rgba(244, 63, 94, 0.6); transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+    <button id="clickBtn">Modern Event Listener</button>
+    <script>
+        document.getElementById("clickBtn").addEventListener("click", function() {
+            this.innerText = "Event Captured! 🎉";
+            this.style.background = "#22c55e";
+            this.style.boxShadow = "0 0 30px rgba(34, 197, 94, 0.5)";
+        });
+    </script>
+</body>
+</html>
